@@ -7,7 +7,7 @@
 </div>
 
 > [!NOTE]
-> TThis repository was created for educational purposes based on [Karpathy's nanoGPT](https://github.com/karpathy/nanoGPT).
+> This repository was created for educational purposes based on [Karpathy's nanoGPT](https://github.com/karpathy/nanoGPT).
 
 ---
 
@@ -46,6 +46,18 @@ pip install git+https://github.com/RistoAle97/yet-another-gpt
 # Using pip, installing dev dependencies as well
 pip install "yetanothergpt[dev] @ git+https://github.com/RistoAle97/yet-another-gpt"
 ```
+
+---
+
+## :hammer_and_wrench: Architecture overview
+
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.jpg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.jpg">
+  <img alt="GPT architecture" src="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.jpg" height=500>
+</picture>
+</div>
 
 ---
 

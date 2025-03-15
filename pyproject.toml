@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=65.5.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yetanothergpt"
+authors = [
+  {name = "Alessandro Ristori", email = "aleristori97@gmail.com"}
+]
+version = "1.0.0"
+description = "Yet Another GPT Implementation"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+dependencies = [
+    "torch>=2.3.1",
+]
+
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=3.7.1",
+    "ruff>=0.9.1",
+]
+
+[project.urls]
+Repository = "https://github.com/RistoAle97/yet-another-gpt"
+
+[tool.ruff]
+line-length = 120
+output-format = "grouped"
+target-version = "py311"
+
+[tool.ruff.lint]
+ignore = [
+    "E111", # Indentation is not a multiple of {indent_width}
+    "E114", # Indentation is not a multiple of {indent_width} (comment)
+    "E117", # Over-indented (comment)
+]
+select = [
+    "ARG", # Flake8 unused arguments
+    "D", # Pydocstyle errors
+    "E", # PEP8 errors
+    "F", # PEP8 formatting
+    "I", # Import sorting
+    "N", # PEP8 naming
+    "RUF", # Ruff specific rules
+    "UP", # Pyupgrade upgrades
+]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"examples/*" = ["D"]
+
+[tool.ruff.lint.isort]
+force-single-line = false
+lines-after-imports = 2
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.uv.pip]
+extra-index-url = ["https://download.pytorch.org/whl/cu124"]

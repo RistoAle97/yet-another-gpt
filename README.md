@@ -53,9 +53,9 @@ pip install "yetanothergpt[dev] @ git+https://github.com/RistoAle97/yet-another-
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.jpg">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.jpg">
-  <img alt="GPT architecture" src="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.jpg" height=500>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_light.png">
+  <img alt="GPT architecture" src="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.png" height=500>
 </picture>
 </div>
 

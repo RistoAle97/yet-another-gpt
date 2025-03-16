@@ -51,13 +51,34 @@ pip install "yetanothergpt[dev] @ git+https://github.com/RistoAle97/yet-another-
 
 ## :hammer_and_wrench: Architecture overview
 
-<div align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_light.png">
-  <img alt="GPT architecture" src="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.png" height=500, width=350>
-</picture>
+<div>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_light.png">
+    <img align="right" alt="GPT architecture" src="https://github.com/RistoAle97/yet-another-gpt/blob/main/assets/gpt_dark.png" height=390, width=250>
+  </picture>
 </div>
+
+  ```python
+  import torch
+  from yetanothergpt import GPTConfig, GPT
+
+
+  # Some configurations from the original implementation
+  small_config = GPTConfig(n_layers=12, n_heads=12, d_model=768)  # 124M params
+  medium_config = GPTConfig(n_layers=24, n_heads=16, d_model=1024)  # 350M params
+  large_config = GPTConfig(n_layers=36, n_heads=20, d_model=1280)  # 774M params
+  xl_config = GPTConfig(n_layers=48, n_heads=25, d_model=1600)  # 1.558B params
+
+  # Set up the model
+  device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+  model = GPT(small_config).to(device)
+
+  # Try a forward pass
+  input_tokens = torch.randint(0, model.config.vocab_size, size=(10, 128)).to(device)
+  pad_mask = torch.zeros_like(input, dtype=torch.bool).to(device)
+  logits, loss = model(input_tokens, pad_mask)
+  ```
 
 ---
 

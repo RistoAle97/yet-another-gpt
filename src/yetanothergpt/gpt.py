@@ -1,7 +1,7 @@
 """A simple GPT architecture implementation."""
 
 import math
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import torch
 from torch import nn
@@ -40,7 +40,7 @@ class GPTConfig:
     dropout_res: float = 0.1
     dropout_mha: float = 0.1
     dropout_ff: float = 0.1
-    act_ff: nn.Module = nn.GELU
+    act_ff: nn.Module = field(default=nn.GELU())
     ln_eps: float = 1e-5
     bias: bool = True
     tie_weights: bool = True
@@ -100,7 +100,7 @@ class GPTLayer(nn.Module):
         """
         # Masked multi-head attention
         mha_out = self.mha_ln(x)
-        mha_out = self.mha.forward(mha_out, mha_out, mha_out, padding_mask, attn_mask=attn_mask)[0]
+        mha_out = self.mha(mha_out, mha_out, mha_out, padding_mask, attn_mask=attn_mask)[0]
         mha_out = x + self.mha_dropout_res(mha_out)
 
         # Feed-forward
@@ -195,7 +195,7 @@ class GPT(nn.Module):
             x = layer(x, padding_mask, attn_mask)  # (bsz, seq_len, d_model)
 
         # Language modeling head
-        logits = self.lm_head(x)  # (bsz, seq_len, vocab_size)
+        logits: torch.Tensor = self.lm_head(x)  # (bsz, seq_len, vocab_size)
 
         # Compute loss if targets tensor is not None
         loss = None

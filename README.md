@@ -76,7 +76,7 @@ pip install "yetanothergpt[dev] @ git+https://github.com/RistoAle97/yet-another-
 
   # Try a forward pass
   input_tokens = torch.randint(0, model.config.vocab_size, size=(10, 128)).to(device)
-  pad_mask = torch.zeros_like(input, dtype=torch.bool).to(device)
+  pad_mask = torch.zeros_like(input_tokens, dtype=torch.bool).to(device)
   logits, loss = model(input_tokens, pad_mask)
   ```
 

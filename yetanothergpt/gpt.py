@@ -26,9 +26,9 @@ class GPTConfig:
         ln_eps: the eps value in the layer normalization (default=1e-5).
         bias: whether to add bias weights where possible (default=False).
         tie_weights: whether to tie the embeddings weights with the language modeling head (default=True).
-        pad_token_id: the pad token id (default=0)
-        eos_token_id: the end of sequence token id (default=1)
-        the label smoothing value for the cross-entropy loss (default=0.0)
+        pad_token_id: the pad token id (default=0).
+        eos_token_id: the end of sequence token id (default=1).
+        the label smoothing value for the cross-entropy loss (default=0.0).
     """
 
     vocab_size: int = 50304
@@ -228,10 +228,10 @@ class GPT(nn.Module):
 
         # Checks before starting
         if max_new_tokens <= 0:
-            raise ValueError("The parameter 'max_new_tokens' must be higher than 0.")
+            raise ValueError("The 'max_new_tokens' parameter must be higher than 0.")
 
         if temp <= 0:
-            raise ValueError("The 'temperature' must be higher than 0.")
+            raise ValueError("The 'temperature' parameter must be higher than 0.")
 
         # Some useful parameters
         device = input_ids.device

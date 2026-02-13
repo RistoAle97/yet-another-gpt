@@ -194,6 +194,8 @@ class GPT(nn.Module):
         for layer in self.layers:
             x = layer(x, padding_mask, attn_mask)  # (bsz, seq_len, d_model)
 
+        x = self.last_ln(x)
+
         # Language modeling head
         logits: torch.Tensor = self.lm_head(x)  # (bsz, seq_len, vocab_size)
 

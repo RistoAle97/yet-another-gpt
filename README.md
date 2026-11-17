@@ -9,8 +9,6 @@
 > [!NOTE]
 > This repository was created for educational purposes based on [Karpathy's nanoGPT](https://github.com/karpathy/nanoGPT).
 
----
-
 ## :package: Installation
 This project requires python >= 3.11.
 
@@ -47,8 +45,6 @@ pip install git+https://github.com/RistoAle97/yet-another-gpt
 pip install "yetanothergpt[dev] @ git+https://github.com/RistoAle97/yet-another-gpt"
 ```
 
----
-
 ## :hammer_and_wrench: Architecture overview
 
 <div>
@@ -79,8 +75,6 @@ pip install "yetanothergpt[dev] @ git+https://github.com/RistoAle97/yet-another-
   pad_mask = torch.zeros_like(input_tokens, dtype=torch.bool).to(device)
   logits, loss = model(input_tokens, pad_mask)
   ```
-
----
 
 ## :memo: License
 This project is [MIT licensed](https://github.com/RistoAle97/centered-kernel-alignment/blob/main/LICENSE).
